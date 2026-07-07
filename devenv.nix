@@ -6,6 +6,7 @@
   packages = with pkgs; [
     golangci-lint # Linter
     gofumpt # Formatter
+    go-task # Task runner, simpler Make alternative
   ];
 
   enterShell = ''

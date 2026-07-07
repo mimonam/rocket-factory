@@ -1,5 +1,7 @@
 # Rocket factory
 
+![CI](https://github.com/mimonam/rocket-factory/actions/workflows/check.yml/badge.svg)
+
 > A microservices platform for managing rocket-parts orders.
 
 ## About
@@ -16,6 +18,8 @@ observability stack.
 - **devenv** (Nix) — reproducible dev environment (`devenv.nix`)
 - **direnv** — auto-activates the environment (`.envrc`)
 - **golangci-lint**, **gofumpt** — linting & formatting
+- **[Task](https://taskfile.dev/)** — task runner (`Taskfile.yml`)
+- **GitHub Actions** — CI (lint / build / test)
 
 ## Prerequisites
 
@@ -63,7 +67,7 @@ them all.
 | `task fmt`    | Format the code (gofumpt)          |
 | `task tidy`   | `go mod tidy`                      |
 | `task update` | Upgrade dependencies (`go get -u`) |
-| `task check`  | Check code before push to github   |
+| `task check`  | Check code before push to GitHub   |
 
 ## CI
 
@@ -78,15 +82,19 @@ and on pull requests:
 
 ```
 .
+├── .github/
+│   └── workflows/check.yml  # CI (lint / build / test)
 ├── .envrc                  # direnv — auto-activates the devenv shell
 ├── .gitignore
-├── devenv.nix              # dev environment definition
+├── .golangci.yml           # strict linter setup
 ├── devenv.lock             # pinned devenv inputs
-├── go.mod                  # Go module (rocket-factory)
+├── devenv.nix              # dev environment definition
+├── go.mod                  # Go module (github.com/mimonam/rocket-factory)
 ├── LICENSE                 # MIT
+├── main.go                 # starter module with void function to test Taskfile cmds 
+├── Taskfile.yml            # task definitions (build/test/lint/fmt/tidy/update/check)
 └── README.md
 ```
-
 
 ## License
 
